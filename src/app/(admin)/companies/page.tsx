@@ -1,9 +1,9 @@
-import AddCompanyButton from "../components/add-company-button";
-import CompanyTable from "../components/company-label";
-import CompanyRow from "../components/company-row";
-import Header from "../components/header";
-import SearchInput from "../components/search-input";
-import Toolbar from "../components/toolbar";
+import AddCompanyButton from "../../components/add-company-button";
+import CompanyTable from "../../components/company-label";
+import CompanyRow from "../../components/company-row";
+import Header from "../../components/header";
+import SearchInput from "../../components/search-input";
+import Toolbar from "../../components/toolbar";
 import { Status } from '@/app/components/status-label';
 
 export default function Page() {
