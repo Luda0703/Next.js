@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import {Promotion} from '../../lib/api';
 
-export interface PromotionProps {
+export type PromotionProps = {
   promotion: Promotion;
 }
 
