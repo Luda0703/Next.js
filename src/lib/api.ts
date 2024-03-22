@@ -44,7 +44,7 @@ export interface Company {
   avatar?: string;
 }
 
-export interface Promotion {
+export type Promotion = {
   id: string;
   title: string;
   description: string;
