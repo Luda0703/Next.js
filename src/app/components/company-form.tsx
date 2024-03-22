@@ -2,12 +2,17 @@
 
 import React from 'react';
 import { Form, Formik } from 'formik';
-import Button from '@/app/components/button';
-import LogoUploader from './logo-uploader';
-import InputField from './input-field';
-import { CompanyStatus, createCompany, getCategories, getCountries } from '@/lib/api';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import StatusLabel from './status-label';
+import {
+  CompanyStatus,
+  createCompany,
+  getCategories,
+  getCountries,
+} from '@/lib/api';
+import Button from '@/app/components/button';
+import InputField from '@/app/components/input-field';
+import LogoUploader from '@/app/components/logo-uploader';
+import StatusLabel from '@/app/components/status-label';
 
 export type CompanyFieldValues = {
   title: string;
@@ -59,9 +64,9 @@ export default function CompanyForm({ onSubmit }: CompanyFormProps) {
     await mutateAsync({
       ...values,
       categoryTitle:
-        categories.find(({ id }) => id === values.categoryId)?.title ?? '',
+        categories?.find(({ id }) => id === values.categoryId)?.title ?? '',
       countryTitle:
-        countries.find(({ id }) => id === values.countryId)?.title ?? '',
+        countries?.find(({ id }) => id === values.countryId)?.title ?? '',
     });
 
     if (onSubmit) {
@@ -106,14 +111,14 @@ export default function CompanyForm({ onSubmit }: CompanyFormProps) {
             </InputField>
           </div>
           <div className="flex flex-col flex-1 gap-5">
-          <InputField required label="Name" placeholder="Name" name="title" />
+            <InputField required label="Name" placeholder="Name" name="title" />
             <InputField
               required
               label="Category"
               placeholder="Category"
               name="categoryId"
               as="select"
-              >
+            >
               {categories?.map((category) => (
                 <option key={category.id} value={category.id}>
                   {category.title}
